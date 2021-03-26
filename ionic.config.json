@@ -1,0 +1,7 @@
+{
+  "name": "examtantra",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
