@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@900&display=swap');
+#speaker-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+.speaker-title {
+
+  font-family: 'Red Hat Display', sans-serif;
+  font-weight: 900;
+}
+  /* Due to the fact the cards are inside of columns the margins don't overlap
+   * properly so we want to remove the extra margin between cards
+   */
+  ion-col:not(:last-of-type) .speaker-card {
+    margin-bottom: 0;
+  }
+
+  .speaker-card .speaker-item {
+    --min-height: 85px;
+  }
+
+  .ion-searchbar {
+      --border-radius : 90px;
+  }
+
+  .ion-icon {
+      padding: 20px;
+      font-family: 'Red Hat Display', sans-serif;
+  }
+
+  .sp-teacher {
+    font-family: 'Public Sans', sans-serif;
+    padding: 0px 20px 0px 10px;
+  }
+  .speaker-card .speaker-item h2 {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .speaker-card .speaker-item p {
+    font-size: 13px;
+    letter-spacing: 0.02em;
+  }
+
+  .speaker-card ion-card-header {
+    padding: 0;
+  }
+
+  .speaker-card ion-card-content {
+    flex: 1 1 auto;
+
+    padding: 0;
+  }

@@ -72,7 +72,7 @@ export async function createCompetition() {
         await firebase.firestore().collection('users').doc(uid).collection('competitions').doc(cid).set({
             cid: cid
         })
-        return true
+        return cid
     } catch {
         return false
     }
