@@ -1,4 +1,4 @@
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route, useHistory } from 'react-router-dom';
 import {
   IonApp,
   IonIcon,
@@ -43,101 +43,60 @@ import { setUserState } from './redux/actions';
 
 const LoginSystem: React.FC = () => {
   return (
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route path="/" component={PreLogin} exact />
-        <Route path="/login" component={Login} exact />
-        <Route path="/register" component={Register} exact />
-      </IonRouterOutlet>
-    </IonReactRouter>
+    <IonRouterOutlet>
+      <Route path="/" component={PreLogin} exact />
+      <Route path="/login" component={Login} exact />
+      <Route path="/register" component={Register} exact />
+    </IonRouterOutlet>
   )
 }
 
 const TabsSystem: React.FC = () => {
   return (
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
-          </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
-          </Route>
-          <Route path="/tab3">
-            <Tab3 />
-          </Route>
-          <Route path="/">
-            <Redirect to="/tab1" />
-          </Route>
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={square} />
-            <IonLabel>Tab 3</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
+    <IonTabs>
+      <IonRouterOutlet>
+        <Route exact path="/tab1">
+          <Tab1 />
+        </Route>
+        <Route exact path="/tab2">
+          <Tab2 />
+        </Route>
+        <Route path="/tab3">
+          <Tab3 />
+        </Route>
+        <Route path="/">
+          <Redirect to="/tab1" />
+        </Route>
+      </IonRouterOutlet>
+      <IonTabBar slot="bottom">
+        <IonTabButton tab="tab1" href="/tab1">
+          <IonIcon icon={triangle} />
+          <IonLabel>Tab 1</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab="tab2" href="/tab2">
+          <IonIcon icon={ellipse} />
+          <IonLabel>Tab 2</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab="tab3" href="/tab3">
+          <IonIcon icon={square} />
+          <IonLabel>Tab 3</IonLabel>
+        </IonTabButton>
+      </IonTabBar>
+    </IonTabs>
   )
 }
-
-const RoutingSystem: React.FC = () => {
-  return (
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
-          </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
-          </Route>
-          <Route path="/tab3">
-            <Tab3 />
-          </Route>
-          <Route path="/" component={PreLogin} exact />
-          <Route path="/login" component={Login} exact />
-          <Route path="/register" component={Register} exact />
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={square} />
-            <IonLabel>Tab 3</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
-  )
-}
-
 
 const App: React.FC = () => {
 
   const [busy, setBusy] = useState(true)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  
   const dispatch = useDispatch()
 
   useEffect(() => {
-    getCurrentUser().then((user : any) => {
+    getCurrentUser().then((user: any) => {
       console.log(user)
-      if(user) {
+      if (user) {
         //logged in
         setIsLoggedIn(true)
         dispatch(setUserState(user.email))
@@ -152,7 +111,9 @@ const App: React.FC = () => {
 
   return (
     <IonApp>
-      { busy ? <IonSpinner /> : <RoutingSystem /> }
+      <IonReactRouter>
+        {busy ? <IonSpinner /> : (isLoggedIn ? <TabsSystem />: <LoginSystem />)}
+      </IonReactRouter>
     </IonApp>
   )
 }
