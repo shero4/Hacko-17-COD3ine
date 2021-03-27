@@ -1,7 +1,7 @@
 import { IonContent, IonButton, IonHeader, IonPage, IonTitle, IonToolbar, IonLoading } from '@ionic/react';
 import { useSelector } from 'react-redux';
 import './Tab1.css';
-import { logoutUser } from '../firebaseConfig'
+import { logoutUser, createCompetition, getCompetitions, addFriendToCompetition, checkAnswer, getLeaderboard } from '../firebaseConfig'
 import { useHistory } from 'react-router';
 import { useState } from 'react';
 
