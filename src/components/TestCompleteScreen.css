@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #4aa8ff;
+}
+
+#main-screen {
+  height: 100%;
+  width: 100%;
+  /* padding:10px; */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+
+  /* justify-content:center; */
+  /* align-items:start; */
+}
+
+#text-screen {
+  margin-top: 4.5rem;
+}
+#bravo-heading {
+  font-size: 3.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  font-family: "Red Hat Display", sans-serif;
+}
+
+#main-screen-sub-heading {
+  text-align: center;
+  font-weight: 300;
+}
+#image-screen {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+#screen-main-logo {
+  margin-top: 3rem;
+  height: 18.4rem;
+  width: 18.4rem;
+}
+#main-button-screen {
+  text-align: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#screen-main-button {
+  font-size: 1.7rem;
+  padding: 16px;
+  background-color: white;
+  color: #4aa8ff;
+  border-radius: 50px;
+}
+
+@media only screen and (min-width: 650px) {
+  #text-screen {
+    margin-top: 6rem;
+  }
+  #bravo-heading {
+    font-size: 6.5rem;
+  }
+
+  #main-screen-sub-heading {
+    font-size: 2.5rem;
+  }
+  #screen-main-logo {
+    height: 28.4rem;
+    width: 28.4rem;
+  }
+  #screen-main-button {
+    font-size: 2.7rem;
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #screen-main-logo {
+    margin: 40px;
+    height: 14.4rem;
+    width: 14.4rem;
+  }
+}
