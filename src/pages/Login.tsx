@@ -23,7 +23,7 @@ const Login: React.FC = () => {
     // yahan pe bhi cases dalne honge 
     if (res) {
       dispatch(setUserState(res.user.email))
-      history.push('/tab1')
+      history.push('/tab/dashboard')
       setMessage("Logged in successfully");
       setShowToast(true);
     } else {

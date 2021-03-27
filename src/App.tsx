@@ -44,57 +44,15 @@ import SearchPage from './pages/SearchPage';
 import ExamOverview from './pages/ExamOverview';
 import QASlides from './pages/QASlides';
 
-const LoginSystem: React.FC = () => {
-  return (
-    <IonRouterOutlet>
-      <Route path="/" component={PreLogin} exact />
-      <Route path="/login" component={Login} exact />
-      <Route path="/register" component={Register} exact />
-    </IonRouterOutlet>
-  )
-}
-
-// const TabsSystem: React.FC = () => {
-//   return (
-//     <IonTabs>
-//       <IonRouterOutlet>
-//         <Route exact path="/tab/dashboard">
-//           <Dashboard />
-//         </Route>
-//         <Route exact path="/tab/search">
-//           <Tab2 />
-//         </Route>
-//         <Route path="/tab/profile">
-//           <Tab3 />
-//         </Route>
-//         <Route path="/">
-//           <Redirect to="/tab/dashboard" />
-//         </Route>
-//       </IonRouterOutlet>
-//       <IonTabBar slot="bottom">
-//         <IonTabButton tab="tab1" href="/tab/dashboard">
-//           <IonIcon icon={home} />
-//           <IonLabel>Dashboard 1</IonLabel>
-//         </IonTabButton>
-//         <IonTabButton tab="tab2" href="/tab/search">
-//           <IonIcon icon={search} />
-//           <IonLabel>Search</IonLabel>
-//         </IonTabButton>
-//         <IonTabButton tab="tab3" href="/tab/profile">
-//           <IonIcon icon={personCircle} />
-//           <IonLabel>Profiel</IonLabel>
-//         </IonTabButton>
-//       </IonTabBar>
-//     </IonTabs>
-//   )
-// }
-
 const MainRouting: React.FC = () => {
   return (
     <IonApp>
       <IonReactRouter>
         <IonTabs>
           <IonRouterOutlet>
+            <Route path="/" component={PreLogin} exact />
+            <Route path="/login" component={Login} exact />
+            <Route path="/register" component={Register} exact />
             <Route exact path="/tab/exam">
               <ExamOverview />
             </Route>
@@ -110,9 +68,6 @@ const MainRouting: React.FC = () => {
             <Route path="/tab/profile">
               <Tab3 />
             </Route>
-            <Route exact path="/">
-              <Redirect to="/tab/dashboard" />
-            </Route>
           </IonRouterOutlet>
           <IonTabBar slot="bottom">
             <IonTabButton tab="tab1" href="/tab/dashboard">
@@ -123,7 +78,6 @@ const MainRouting: React.FC = () => {
               <IonIcon icon={search} />
               <IonLabel>Search</IonLabel>
             </IonTabButton>
-            {/* <Route path="/tabs/speakers/:id" component={ExamOverview} exact={true} /> */}
             <IonTabButton tab="tab3" href="/tab/profile">
               <IonIcon icon={personCircle} />
               <IonLabel>Profile</IonLabel>
@@ -149,7 +103,7 @@ const App: React.FC = () => {
         //logged in
         setIsLoggedIn(true)
         dispatch(setUserState(user.email))
-        window.history.replaceState({}, '', '/tab1')
+        window.history.replaceState({}, '', '/tab/dashboard')
       } else {
         setIsLoggedIn(false)
         window.history.replaceState({}, '', '/')
