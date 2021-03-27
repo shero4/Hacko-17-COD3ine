@@ -1,7 +1,7 @@
 import { IonButton, IonLoading, IonToast, IonInput, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { registerUser } from '../firebaseConfig'
+import { Link, useHistory } from 'react-router-dom';
 
 const Register: React.FC = () => {
 
@@ -12,11 +12,18 @@ const Register: React.FC = () => {
   const [showToast, setShowToast] = useState<boolean>(false)
   const [busy, setBusy] = useState<boolean>(false)
 
+  const history = useHistory()
+
   async function register() {
     setBusy(true)
     // yahan pe cases dalne honge
     if(password !==  cpassword) {
       setMessage("Passwords do not match");
+      setBusy(false)
+      return setShowToast(true);
+    }
+    if(password.length < 7) {
+      setMessage("Passwords too short");
       setBusy(false)
       return setShowToast(true);
     }
@@ -28,6 +35,7 @@ const Register: React.FC = () => {
     const res = await registerUser(email, password)
     if(res) {
       setMessage("User registered");
+      history.push('/tab/dashboard')
       setBusy(false)
       return setShowToast(true);
     }

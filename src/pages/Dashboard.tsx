@@ -123,7 +123,7 @@ const Dashboard: React.FC = () => {
         </IonHeader>
         <IonGrid fixed>
           <h5 className="ion-subtitle">Test Results</h5>
-          <p>Hello, {useremail.split('@')[0]}!</p>
+          <p>Hello, {useremail.split('@')[0] || ''}!</p>
           <IonCard className="ion-card">
             <MyBar
               data={barChartData}
