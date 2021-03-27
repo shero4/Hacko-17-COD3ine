@@ -11,10 +11,27 @@ const config = {
 
 firebase.initializeApp(config)
 
+export function getCurrentUser() {
+    return new Promise((resolve, reject) => {
+        const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+            if(user) {
+                resolve(user)
+            } else {
+                resolve(null)
+            }
+            unsubscribe()
+        })
+    })
+}
+
+export function logoutUser() {
+    return firebase.auth().signOut(); 
+}
+
 export async function loginUser(email: string, password: string) {
     try {
         const res = await firebase.auth().signInWithEmailAndPassword(email, password);
-        return true;
+        return res;
     } catch(err) {
         console.log(err);
         return false;

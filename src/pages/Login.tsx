@@ -1,7 +1,9 @@
 import { IonToast, IonButton, IonContent, IonHeader, IonInput, IonMenuButton, IonPage, IonTitle, IonToolbar, IonLoading } from '@ionic/react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { loginUser } from '../firebaseConfig'
+import { setUserState } from '../redux/actions';
+import { useDispatch } from 'react-redux';
 
 const Login: React.FC = () => {
 
@@ -11,12 +13,17 @@ const Login: React.FC = () => {
   const [message, setMessage] = useState<string>('')
   const [showToast, setShowToast] = useState<boolean>(false)
 
+  const dispatch = useDispatch()
+  const history = useHistory()
+
   async function login() {
     setBusy(true)
-    let res = await loginUser(email, password);
+    const res: any = await loginUser(email, password);
     console.log(res)
     // yahan pe bhi cases dalne honge 
     if (res) {
+      dispatch(setUserState(res.user.email))
+      history.replace('/tab1')
       setMessage("Logged in successfully");
       setShowToast(true);
     } else {
