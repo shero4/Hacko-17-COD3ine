@@ -5,6 +5,11 @@ import {createCompetition} from '../firebaseConfig'
 
 const ExamOverview: React.FC = () => {
 
+    const callCreateCompetition = async() => {
+        const res = await createCompetition()
+        console.log(res)
+    }
+
 
 
     return (
@@ -30,7 +35,7 @@ const ExamOverview: React.FC = () => {
                     <p>20 questions<span className="time">(2 hrs)</span></p>
                     <p><span className="topics">3D</span><span className="topics">Matices</span><span className="topics">Algebra</span></p>
                     <div>
-                    <IonButton routerLink="/tab/exam/start" color="primary" shape="round" size="large" expand="full"  >Start Test</IonButton>
+                    <IonButton onClick={callCreateCompetition} routerLink="/tab/exam/start" color="primary" shape="round" size="large" expand="full"  >Start Test</IonButton>
 
                     </div>
 
