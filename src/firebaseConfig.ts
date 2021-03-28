@@ -112,6 +112,7 @@ export async function checkAnswer(userAns: string, qno: number, cid: string) {
             await firebase.firestore().collection('competitions').doc(cid).collection('users').doc(uid).update({
                 score: firebase.firestore.FieldValue.increment(10)
             })
+            console.log("fuck ya")
             return true
         } else {
             console.log(question)

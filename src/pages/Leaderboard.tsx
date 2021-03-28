@@ -1,4 +1,4 @@
-import { IonButtons, IonCard, IonCardContent, IonCardHeader, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenuButton, IonPage, IonRow, IonSearchbar, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenuButton, IonPage, IonRow, IonSearchbar, IonTitle, IonToolbar } from '@ionic/react';
 import './Leaderboard.css'
 import { getLeaderboard } from '../firebaseConfig'
 import { RouteComponentProps } from 'react-router';
@@ -13,7 +13,7 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ match }) => {
   const cid = match.params.cid
   console.log(cid)
 
-  const [leaderboard, setLeaderboard] = useState<any>(null)
+  const [leaderboard, setLeaderboard] = useState<any>([])
 
   useEffect(() => {
     async function getlead() {
@@ -28,7 +28,7 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ match }) => {
       <IonHeader className="ion-no-border " translucent={true}>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonMenuButton />
+            <IonBackButton defaultHref="/" />
           </IonButtons>
           <IonTitle className="ion-title">Leaderboard</IonTitle>
         </IonToolbar>
