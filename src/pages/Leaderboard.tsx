@@ -1,8 +1,28 @@
 import { IonButtons, IonCard, IonCardContent, IonCardHeader, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenuButton, IonPage, IonRow, IonSearchbar, IonTitle, IonToolbar } from '@ionic/react';
 import './Leaderboard.css'
-import { filter } from 'ionicons/icons';
+import { getLeaderboard } from '../firebaseConfig'
+import { RouteComponentProps } from 'react-router';
+import { useEffect, useState } from 'react';
 
-const Leaderboard: React.FC = () => {
+interface LeaderboardProps extends RouteComponentProps<{
+  cid: string;
+}> { }
+
+const Leaderboard: React.FC<LeaderboardProps> = ({ match }) => {
+
+  const cid = match.params.cid
+  console.log(cid)
+
+  const [leaderboard, setLeaderboard] = useState<any>(null)
+
+  useEffect(() => {
+    async function getlead() {
+      let res = await getLeaderboard(cid);
+      setLeaderboard(res);
+    }
+    getlead()
+  }, [])
+
   return (
     <IonPage id="speaker-list">
       <IonHeader className="ion-no-border " translucent={true}>
@@ -20,24 +40,13 @@ const Leaderboard: React.FC = () => {
             <IonTitle className="speaker-title" size="large">Leaderboard</IonTitle>
           </IonToolbar>
         </IonHeader>
-
         <IonList>
-      <IonItem>
-        <IonLabel>Pokémon Yellow</IonLabel>
-      </IonItem>
-      <IonItem>
-        <IonLabel>Mega Man X</IonLabel>
-      </IonItem>
-      <IonItem>
-        <IonLabel>The Legend of Zelda</IonLabel>
-      </IonItem>
-      <IonItem>
-        <IonLabel>Pac-Man</IonLabel>
-      </IonItem>
-      <IonItem>
-        <IonLabel>Super Mario World</IonLabel>
-      </IonItem>
-    </IonList>
+          {leaderboard.map((member:any, index:number) => (
+            <IonItem key={index}>
+              <IonLabel>{member.score + '  -  ' + member.email}</IonLabel>
+            </IonItem>
+          ))}
+        </IonList>
       </IonContent>
     </IonPage>
   );
