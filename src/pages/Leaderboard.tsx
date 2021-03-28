@@ -25,14 +25,15 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ match }) => {
 
   return (
     <IonPage id="speaker-list">
-      <IonHeader className="ion-no-border " translucent={true}>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/" />
-          </IonButtons>
-          <IonTitle className="ion-title">Leaderboard</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <IonHeader className="ion-no-border">
+                <IonToolbar>
+                    <IonButtons>
+                        <IonBackButton defaultHref="/" />
+                    </IonButtons>
+                    <IonTitle className="ion-title">Leaderboard</IonTitle>
+                </IonToolbar>
+              
+            </IonHeader>
 
       <IonContent fullscreen={true}>
         <IonHeader collapse="condense" className="ion-no-border">

@@ -1,8 +1,10 @@
 import React, { useState,useRef,useEffect } from 'react';
 import {useHistory} from 'react-router-dom';
-import { IonSlides, IonSlide, IonContent, IonPage, IonList, IonRadioGroup, IonListHeader, IonLabel, IonItem, IonRadio, IonItemDivider, IonGrid, IonRow, IonInput, IonButton } from '@ionic/react';
+import { IonSlides, IonSlide, IonContent, IonPage, IonList, IonRadioGroup, IonListHeader, IonLabel, IonItem, IonRadio, IonItemDivider, IonGrid, IonRow, IonInput, IonButton, IonCol, IonIcon } from '@ionic/react';
 import './QASlides.css';
 import { questionBank } from '../qa';
+import { star } from 'ionicons/icons';
+
 import { addFriendToCompetition,checkAnswer } from '../firebaseConfig';
 import { RouteComponentProps } from 'react-router';
 
@@ -85,20 +87,22 @@ const handlePrev = () => slidesRef.current?.slidePrev()
           ))}
         </IonSlides>
         {/* <IonButton onClick={handlePrev} color="danger" shape="round" size="small"  >Previous</IonButton> */}
-        <IonButton onClick={handleNext} color="danger" shape="round" size="small"  >Next</IonButton>
-        <IonItem>
-        <IonButton onClick={handleQuesSubmit} color="danger" shape="round" size="small"  >Submit This Question</IonButton>
+        <IonCol>
+        <IonButton className="next-btn-ques" onClick={handleNext} color="secondary" shape="round" size="small"  >Next</IonButton>
+        <IonButton onClick={handleQuesSubmit} color="danger" shape="round" size="small"  >Submit</IonButton>
 
-        </IonItem>
 
-        <IonItemDivider>Add a friend:</IonItemDivider>
+        </IonCol>
+        
+
+        <IonItemDivider className="ion-subtitle add-frnd">Add a friend:</IonItemDivider>
         <IonItem>
           <IonInput placeholder="Enter your friend's email" onIonChange={(e : any) => setAddEmail(e.target.value)} clearInput></IonInput>
         </IonItem>
         <IonItem>
           <IonButton onClick={callAddFriendToCompetition} color="primary" shape="round" size="small"  >Add Friend</IonButton>
         </IonItem>
-        <IonButton onClick={goToLeaderboard}  color="danger" shape="round" size="small"  >Go to Leaderboard</IonButton>
+        <IonButton onClick={goToLeaderboard}  color="success" shape="round" size="small"  > <IonIcon slot="end" icon={star} />Go to Leaderboard</IonButton>
       </IonContent>
     </IonPage>
   );
