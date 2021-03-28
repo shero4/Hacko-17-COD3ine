@@ -29,21 +29,21 @@ import { Bar } from "react-chartjs-2";
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { useState } from "react";
-import { logoutUser } from '../firebaseConfig'
+// import { logoutUser } from '../firebaseConfig'
 
 const Dashboard: React.FC = () => {
   const useremail = useSelector((state: any) => state.user.email)
 
   const history = useHistory()
 
-  const [busy, setBusy] = useState<boolean>(false)
+  // const [busy, setBusy] = useState<boolean>(false)
 
-  async function logout() {
-    setBusy(true)
-    await logoutUser()
-    setBusy(false)
-    history.replace('/')
-  }
+  // async function logout() {
+  //   setBusy(true)
+  //   await logoutUser()
+  //   setBusy(false)
+  //   history.replace('/')
+  // }
   const barChartData = {
     labels: ["1st", "2nd", "3rd", "4th", "5th"],
     datasets: [
@@ -122,8 +122,9 @@ const Dashboard: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonGrid fixed>
+        <p className="greeting-text">Hello, {useremail.split('@')[0] || ''}!</p>
           <h5 className="ion-subtitle">Test Results</h5>
-          <p>Hello, {useremail.split('@')[0] || ''}!</p>
+          
           <IonCard className="ion-card">
             <MyBar
               data={barChartData}
@@ -162,7 +163,7 @@ const Dashboard: React.FC = () => {
             </IonCol>
           </IonRow>
         </IonGrid>
-        <IonButton onClick={logout}>Logout</IonButton>
+        {/* <IonButton onClick={logout}>Logout</IonButton> */}
       </IonContent>
     </IonPage>
 

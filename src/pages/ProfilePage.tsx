@@ -1,10 +1,25 @@
 import './ProfilePage.css';
 import { IonGrid, IonRow, IonCol, IonContent ,IonPage
-,IonTitle,IonAvatar,IonItem,IonLabel,IonText
+,IonTitle,IonAvatar,IonItem,IonLabel,IonText, IonButton
 } from '@ionic/react';
+import { useState } from 'react';
+import {useHistory} from 'react-router-dom'
+import { logoutUser } from '../firebaseConfig'
+
 
 
 const ProfilePage: React.FC = () => {
+
+  const history = useHistory()
+  const [busy, setBusy] = useState<boolean>(false)
+
+
+  async function logout() {
+    setBusy(true)
+    await logoutUser()
+    setBusy(false)
+    history.replace('/')
+  }
   
   
   return (
@@ -43,6 +58,7 @@ const ProfilePage: React.FC = () => {
         </IonRow>
         
       </IonGrid>
+      <IonButton onClick={logout}>Logout</IonButton>
 
       </IonContent>
    

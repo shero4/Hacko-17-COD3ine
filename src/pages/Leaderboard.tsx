@@ -28,7 +28,7 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ match }) => {
       <IonHeader className="ion-no-border">
                 <IonToolbar>
                     <IonButtons>
-                        <IonBackButton defaultHref="/" />
+                        <IonBackButton defaultHref={`/tab/exam/start/${cid}`} />
                     </IonButtons>
                     <IonTitle className="ion-title">Leaderboard</IonTitle>
                 </IonToolbar>

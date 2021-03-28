@@ -21,7 +21,7 @@ const ExamOverview: React.FC = () => {
             <IonHeader className="ion-no-border">
                 <IonToolbar>
                     <IonButtons>
-                        <IonBackButton defaultHref="/" />
+                        <IonBackButton defaultHref="/tab/search" />
                     </IonButtons>
                 </IonToolbar>
             </IonHeader>

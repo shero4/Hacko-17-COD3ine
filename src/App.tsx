@@ -90,17 +90,12 @@ const MainRouting: React.FC = () => {
               <IonIcon icon={search} />
               <IonLabel>Search</IonLabel>
             </IonTabButton>
-<<<<<<< HEAD
             <IonTabButton tab="tab4" href="/tab/challenges">
               <IonIcon icon={trophy} />
               <IonLabel>Challenges</IonLabel>
             </IonTabButton>
-            <IonTabButton tab="tab3" href="/tab/profile">
+            <IonTabButton className='tab-bar-icon-styling' tab="tab3" href="/tab/profile">
               <IonIcon icon={personCircle} />
-=======
-            <IonTabButton  className='tab-bar-icon-styling' tab="tab3" href="/tab/profile">
-              <IonIcon  icon={personCircle} />
->>>>>>> 2480b38d4d1ac9c4b02453e9de06a4e4135732ff
               <IonLabel>Profile</IonLabel>
             </IonTabButton>
             
