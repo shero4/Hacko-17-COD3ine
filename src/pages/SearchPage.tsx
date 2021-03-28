@@ -35,8 +35,8 @@ const SearchPage: React.FC = () => {
                 <IonCardHeader>
                   <IonItem button detail={false} lines="none" className="speaker-item" routerLink={"/tab/exam"}>
                     <IonLabel>
-                      <h2 className="ion-subtitle">MATH IA</h2>
-                      <p className="sp-teacher">Prof. XYZ</p>
+                      <h2 className="ion-subtitle">MATH IA - Trigonometry</h2>
+                      <p className="sp-teacher">Prof. RS Agarwal</p>
                     </IonLabel>
                   </IonItem>
                 </IonCardHeader>
@@ -51,8 +51,8 @@ const SearchPage: React.FC = () => {
                 <IonCardHeader>
                   <IonItem button detail={false} lines="none" className="speaker-item">
                     <IonLabel>
-                      <h2 className="ion-subtitle">MATH IA</h2>
-                      <p className="sp-teacher">Prof. XYZ</p>
+                      <h2 className="ion-subtitle">MATH 2A - Matrices</h2>
+                      <p className="sp-teacher">Prof. RD Sharma</p>
                     </IonLabel>
                   </IonItem>
                 </IonCardHeader>
@@ -67,8 +67,8 @@ const SearchPage: React.FC = () => {
                 <IonCardHeader>
                   <IonItem button detail={false} lines="none" className="speaker-item">
                     <IonLabel>
-                      <h2 className="ion-subtitle">MATH IA</h2>
-                      <p className="sp-teacher">Prof. XYZ</p>
+                      <h2 className="ion-subtitle">Physics IA - Motion</h2>
+                      <p className="sp-teacher">Prof. HC Agarwal</p>
                     </IonLabel>
                   </IonItem>
                 </IonCardHeader>
@@ -83,40 +83,8 @@ const SearchPage: React.FC = () => {
                 <IonCardHeader>
                   <IonItem button detail={false} lines="none" className="speaker-item">
                     <IonLabel>
-                      <h2 className="ion-subtitle">MATH IA</h2>
-                      <p className="sp-teacher">Prof. XYZ</p>
-                    </IonLabel>
-                  </IonItem>
-                </IonCardHeader>
-
-                <IonCardContent>
-                </IonCardContent>
-              </IonCard>
-            </IonCol>
-
-            <IonCol size="12" size-md="6">
-              <IonCard className="speaker-card">
-                <IonCardHeader>
-                  <IonItem button detail={false} lines="none" className="speaker-item">
-                    <IonLabel>
-                      <h2 className="ion-subtitle">MATH IA</h2>
-                      <p className="sp-teacher">Prof. XYZ</p>
-                    </IonLabel>
-                  </IonItem>
-                </IonCardHeader>
-
-                <IonCardContent>
-                </IonCardContent>
-              </IonCard>
-            </IonCol>
-
-            <IonCol size="12" size-md="6">
-              <IonCard className="speaker-card">
-                <IonCardHeader>
-                  <IonItem button detail={false} lines="none" className="speaker-item">
-                    <IonLabel>
-                      <h2 className="ion-subtitle">MATH IA</h2>
-                      <p className="sp-teacher">Prof. XYZ</p>
+                      <h2 className="ion-subtitle">MATH IA - Engineering Math</h2>
+                      <p className="sp-teacher">Prof. BS Grewal</p>
                     </IonLabel>
                   </IonItem>
                 </IonCardHeader>

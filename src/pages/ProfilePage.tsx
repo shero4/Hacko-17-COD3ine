@@ -10,7 +10,7 @@ const ProfilePage: React.FC = () => {
   return (
     
     <IonPage >
-      <IonContent id='profile-page-ion-content' fullscreen>
+      <IonContent className="ion-padding" id='profile-page-ion-content' fullscreen>
 
       <IonGrid>
         <IonRow id='profile-heading-section'>
@@ -19,7 +19,7 @@ const ProfilePage: React.FC = () => {
         <IonRow id="profile-image-and-name-section">
         <IonCol>
             <IonAvatar id='profile-avatar'>
-                <img src='./assets/icon/USER.png'/>
+                <img src='/assets/USER.png'/>
             </IonAvatar>
         </IonCol>
         <IonCol id='user-name-and-email-section'>
@@ -38,8 +38,7 @@ const ProfilePage: React.FC = () => {
         </IonRow>
         <IonRow>
           <IonText id='user-description-text'>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime architecto exercitationem minima expedita illum dolor est explicabo, quo quidem. Accusamus a natus adipisci deserunt quis porro molestiae labore tenetur nobis.
-            Itaque consequuntur nobis nam laboriosam ex at hic quas facere aliquid. Aperiam tempore sit sapiente accusantium earum nihil aspernatur aliquid eveniet, ratione, exercitationem molestiae recusandae facilis harum magni eum officiis.
+            18 year old student preparing for JEE examinations
           </IonText>
         </IonRow>
         

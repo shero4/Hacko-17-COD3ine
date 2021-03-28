@@ -28,18 +28,18 @@ const ExamOverview: React.FC = () => {
 
             <IonContent className="ion-padding">
 
-                <IonTitle className="ion-title">Prof. XYZ</IonTitle>
-                <p className="ion-subscript">Posted 3 days ago!</p>
+                <IonTitle className="ion-title">Math 1A</IonTitle>
+                <p className="ion-subscript">Posted 3 days ago! - Professor RS Agarwal</p>
                 <div className="ion-padding">
 
-                    <h1 className="ion-title-2">MATH IA</h1>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elit dui, rhoncus vitae nunc eget, mattis cursus tortor. Quisque ut nunc suscipit, efficitur velit nec, interdum lacus. Integer congue ipsum</p>
+                    <h1 className="ion-title-2">Start solving and invite your friends</h1>
+                    <p> This question set includes basic mathematics questions</p>
 
                     <hr />
-                    <p>20 questions<span className="time">(2 hrs)</span></p>
+                    <p>10 questions</p>
                     <p><span className="topics">3D</span><span className="topics">Matices</span><span className="topics">Algebra</span></p>
                     <div>
-                        <IonButton onClick={callCreateCompetition} color="primary" shape="round" size="large" expand="full"  >Start Test</IonButton>
+                        <IonButton onClick={callCreateCompetition} color="primary" shape="round" size="large" expand="full"  >Start Solving</IonButton>
 
                     </div>
 
