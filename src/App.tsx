@@ -10,7 +10,7 @@ import {
   IonTabs,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { home, podium, personCircle, search } from 'ionicons/icons';
+import { home, podium, personCircle, search, trophy } from 'ionicons/icons';
 import PreLogin from './pages/PreLogin'
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -48,6 +48,8 @@ import ProfilePage from './pages/ProfilePage';
 import MainHomePage from './pages/MainHomePage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
+import Challenges from './pages/Challenges';
+
 
 
 
@@ -75,6 +77,9 @@ const MainRouting: React.FC = () => {
             <Route path="/tab/profile">
               <ProfilePage />
             </Route>
+            <Route path="/tab/challenges">
+              <Challenges />
+            </Route>
           </IonRouterOutlet>
           <IonTabBar slot="bottom">
             <IonTabButton tab="tab1" href="/tab/dashboard">
@@ -85,10 +90,15 @@ const MainRouting: React.FC = () => {
               <IonIcon icon={search} />
               <IonLabel>Search</IonLabel>
             </IonTabButton>
+            <IonTabButton tab="tab4" href="/tab/challenges">
+              <IonIcon icon={trophy} />
+              <IonLabel>Challenges</IonLabel>
+            </IonTabButton>
             <IonTabButton tab="tab3" href="/tab/profile">
               <IonIcon icon={personCircle} />
               <IonLabel>Profile</IonLabel>
             </IonTabButton>
+            
           </IonTabBar>
         </IonTabs>
       </IonReactRouter>
