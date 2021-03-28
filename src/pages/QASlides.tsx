@@ -21,7 +21,7 @@ return (
         
 
 <IonContent id="qasec">
-    <IonSlides className="ion-carousel" pager={true} options={slideOpts}>
+    <IonSlides className="io" pager={true} options={slideOpts}>
         {questionBank.map((question,index) =>(
 
             <IonSlide>
@@ -35,7 +35,7 @@ return (
             </IonListHeader>
             {question.options.map((option,index) => (
                 <IonItem>
-                <IonLabel>{option}</IonLabel>
+                <p>{option}</p>
                 <IonRadio slot="start" value={option} />
               </IonItem>
             ))}

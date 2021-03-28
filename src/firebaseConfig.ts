@@ -73,8 +73,8 @@ export async function createCompetition() {
             cid: cid
         })
         return cid
-    } catch {
-        return false
+    } catch(err) {
+        return err
     }
 }
 

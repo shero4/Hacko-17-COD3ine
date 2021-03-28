@@ -2,12 +2,18 @@ import { IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonCardH
 import './ExamOverview.css'
 import { filter } from 'ionicons/icons';
 import {createCompetition} from '../firebaseConfig'
+import { useState } from 'react';
+import {useHistory} from 'react-router-dom'
 
 const ExamOverview: React.FC = () => {
 
+    const history = useHistory()
+
+    const [cid,setCid] = useState<string>("")
+
     const callCreateCompetition = async() => {
-        const res = await createCompetition()
-        console.log(res)
+        const res:string = await createCompetition()
+         history.push(`/tab/exam/start/${res}`)
     }
 
 
@@ -35,7 +41,7 @@ const ExamOverview: React.FC = () => {
                     <p>20 questions<span className="time">(2 hrs)</span></p>
                     <p><span className="topics">3D</span><span className="topics">Matices</span><span className="topics">Algebra</span></p>
                     <div>
-                    <IonButton onClick={callCreateCompetition} routerLink="/tab/exam/start" color="primary" shape="round" size="large" expand="full"  >Start Test</IonButton>
+                    <IonButton onClick={callCreateCompetition} color="primary" shape="round" size="large" expand="full"  >Start Test</IonButton>
 
                     </div>
 
