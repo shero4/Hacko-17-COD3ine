@@ -4,42 +4,26 @@ import './PreLogin.css'
 
 
 const PreLogin: React.FC = () => {
-  const mainLogoSource: string = 'assets/icon/main-logo.png';
+
+  const mainLogoSource: string = './assets/main-logo-with-tagline.png';
+
   return (
-
-
-
-
     <IonPage >
       <IonContent id="background-image-section" >
-
         <IonImg id="main-logo-styling" src={mainLogoSource} />
-
-
       </IonContent>
       <IonContent id="buttons-section" >
         <IonGrid>
           <IonRow>
             <IonCol>
-              <div>
-                <IonButton class="explore-more-button" shape='round' routerLink="/register">Sign Up</IonButton>
-              </div>
-
-
+              <IonButton class="explore-more-button" shape='round' routerLink="/register">Sign Up</IonButton>
             </IonCol>
             <IonCol>
-              <div>
-                <IonButton class="explore-more-button" shape='round' routerLink="/login">Log In</IonButton>
-              </div>
-
+              <IonButton class="explore-more-button" shape='round' routerLink="/login">Log In</IonButton>
             </IonCol>
           </IonRow>
-
-
         </IonGrid>
-
       </IonContent>
-
     </IonPage>
   )
 };

@@ -32,7 +32,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-
+import './App.css';
 import { useEffect, useState } from 'react';
 import { getCurrentUser } from './firebaseConfig'
 import { useDispatch } from 'react-redux';
@@ -81,21 +81,26 @@ const MainRouting: React.FC = () => {
               <Challenges />
             </Route>
           </IonRouterOutlet>
-          <IonTabBar slot="bottom">
-            <IonTabButton tab="tab1" href="/tab/dashboard">
-              <IonIcon icon={home} />
+          <IonTabBar slot="bottom" color='primary'>
+            <IonTabButton  className='tab-bar-icon-styling' tab="tab1" href="/tab/dashboard">
+              <IonIcon  icon={home} />
               <IonLabel>Dashboard</IonLabel>
             </IonTabButton>
-            <IonTabButton tab="tab2" href="/tab/search">
+            <IonTabButton  className='tab-bar-icon-styling' tab="tab2" href="/tab/search">
               <IonIcon icon={search} />
               <IonLabel>Search</IonLabel>
             </IonTabButton>
+<<<<<<< HEAD
             <IonTabButton tab="tab4" href="/tab/challenges">
               <IonIcon icon={trophy} />
               <IonLabel>Challenges</IonLabel>
             </IonTabButton>
             <IonTabButton tab="tab3" href="/tab/profile">
               <IonIcon icon={personCircle} />
+=======
+            <IonTabButton  className='tab-bar-icon-styling' tab="tab3" href="/tab/profile">
+              <IonIcon  icon={personCircle} />
+>>>>>>> 2480b38d4d1ac9c4b02453e9de06a4e4135732ff
               <IonLabel>Profile</IonLabel>
             </IonTabButton>
             
