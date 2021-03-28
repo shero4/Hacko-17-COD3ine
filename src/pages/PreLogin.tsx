@@ -4,7 +4,7 @@ import './PreLogin.css'
 
 
 const PreLogin: React.FC = () => {
-  const mainLogoSource : string = 'assets/icon/main-logo.png';
+  const mainLogoSource : string = './assets/main-logo-with-tagline.png';
   return (
    
   
