@@ -1,12 +1,13 @@
 body{
     display:flex;
-    background-color:white;
+   
     flex-direction:column;
     justify-content: center;
 
 }
 #background-image-section{
     --background:  url('https://i.ibb.co/THSYXdL/homepage-background.png') 0 0/100% 100% no-repeat;
+    background-color:white;
     /* opacity:0.1;   */
     flex:4;
     display:flex;
