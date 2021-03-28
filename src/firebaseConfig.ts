@@ -126,7 +126,7 @@ export async function checkAnswer(userAns: string, qno: number, cid: string) {
 export async function getLeaderboard(cid: string) {
     try {
         let leaderboard: any = []
-        const res = await firebase.firestore().collection('competitions').doc(cid).collection('users').orderBy('score').get()
+        const res = await firebase.firestore().collection('competitions').doc(cid).collection('users').orderBy('score', 'desc').get()
         res.docs.map(doc => {
             leaderboard.push(doc.data())
         })
