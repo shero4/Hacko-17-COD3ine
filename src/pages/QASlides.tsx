@@ -1,7 +1,8 @@
 import React,{useState} from 'react';
-import { IonSlides, IonSlide, IonContent, IonPage, IonList, IonRadioGroup, IonListHeader, IonLabel, IonItem, IonRadio, IonItemDivider, IonGrid, IonRow } from '@ionic/react';
+import { IonSlides, IonSlide, IonContent, IonPage, IonList, IonRadioGroup, IonListHeader, IonLabel, IonItem, IonRadio, IonItemDivider, IonGrid, IonRow, IonInput, IonButton } from '@ionic/react';
 import './QASlides.css';
 import {questionBank} from '../qa';
+import {addFriendToCompetition} from '../firebaseConfig';
 
 // Optional parameters to pass to the swiper instance.
 // See http://idangero.us/swiper/api/ for valid options.
@@ -14,6 +15,10 @@ const qBank = questionBank
 const QASlides: React.FC = () => {
 
     const [selected, setSelected] = useState<string>('');
+    // const callAddFriendToCompetition = async() => {
+    //     const res = await addFriendToCompetition();
+    //     console.log(res)
+    // } 
 
 return (
 
@@ -50,15 +55,18 @@ return (
 
           </IonSlide>
         ))}
+        </IonSlides>
+        <IonItemDivider>Add a friend:</IonItemDivider>
+          <IonItem>
+            <IonInput placeholder="Enter your friend's email"  clearInput></IonInput>
+          </IonItem>
+          <IonItem>
+          <IonButton onClick={callAddFriendToCompetition} color="primary" shape="round" size="small"  >Add Friend</IonButton>
+              
+          </IonItem>
+
+        </IonContent>
       
-      <IonSlide>
-        <h1>Slide 2</h1>
-      </IonSlide>
-      <IonSlide>
-        <h1>Slide 3</h1>
-      </IonSlide>
-    </IonSlides>
-  </IonContent>
 
 
     </IonPage>

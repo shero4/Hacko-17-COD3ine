@@ -13,7 +13,7 @@ const ExamOverview: React.FC = () => {
 
     const callCreateCompetition = async() => {
         const res:string = await createCompetition()
-         history.push(`/tab/exam/start/${res}`)
+         history.push(`/tab/exam/start/?${res}`)
     }
 
 
