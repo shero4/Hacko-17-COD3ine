@@ -1,22 +1,20 @@
 import { IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenuButton, IonPage, IonRow, IonSearchbar, IonTitle, IonToolbar } from '@ionic/react';
 import './ExamOverview.css'
 import { filter } from 'ionicons/icons';
-import {createCompetition} from '../firebaseConfig'
+import { createCompetition } from '../firebaseConfig'
 import { useState } from 'react';
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 const ExamOverview: React.FC = () => {
 
     const history = useHistory()
 
-    const [cid,setCid] = useState<string>("")
+    const [cid, setCid] = useState<string>("")
 
-    const callCreateCompetition = async() => {
-        const res:string = await createCompetition()
-         history.push(`/tab/exam/start/?${res}`)
+    const callCreateCompetition = async () => {
+        const res: string = await createCompetition()
+        history.push(`/tab/exam/start/${res}`)
     }
-
-
 
     return (
         <IonPage>
@@ -41,7 +39,7 @@ const ExamOverview: React.FC = () => {
                     <p>20 questions<span className="time">(2 hrs)</span></p>
                     <p><span className="topics">3D</span><span className="topics">Matices</span><span className="topics">Algebra</span></p>
                     <div>
-                    <IonButton onClick={callCreateCompetition} color="primary" shape="round" size="large" expand="full"  >Start Test</IonButton>
+                        <IonButton onClick={callCreateCompetition} color="primary" shape="round" size="large" expand="full"  >Start Test</IonButton>
 
                     </div>
 

@@ -56,9 +56,7 @@ const MainRouting: React.FC = () => {
             <Route exact path="/tab/exam">
               <ExamOverview />
             </Route>
-            <Route exact path="/tab/exam/start/?:cid">
-              <QASlides />
-            </Route>
+            <Route exact path="/tab/exam/start/:cid" component={QASlides}/>
             <Route exact path="/tab/dashboard">
               <Dashboard />
             </Route>
