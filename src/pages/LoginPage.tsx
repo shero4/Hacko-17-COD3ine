@@ -52,35 +52,20 @@ const LoginPage: React.FC = () => {
           <div className='take-full-width'>
             <h1 className='login-heading'>Log-In</h1>
           </div>
-          <div className='take-full-width'>
             <IonInput onIonChange={
               (e: any) => {
                 setEmail(e.target.value);
               }
             } placeholder="Email" required={true} type='email' className='input-styling' />
-          </div>
-          <div className='take-full-width'>
             <IonInput onIonChange={
               (e: any) => {
                 setPassword(e.target.value);
               }
             } placeholder='Password' required={true} type='password' className='input-styling' />
-          </div>
-          <div className='take-full-width'>
             <IonButton onClick={login} shape='round' expand='block' color='primary' id='login-main-button' size='large'>Sign In</IonButton>
-          </div>
-          <div className="take-full-width">
             <p id='sign-up-text'>
               Don't have an account? <Link to="/register">Register</Link>
             </p>
-          </div>
-
-
-
-
-
-
-
         </div>
         <IonToast
           isOpen={showToast}
@@ -88,10 +73,6 @@ const LoginPage: React.FC = () => {
           message={message}
           duration={300}
         />
-
-
-
-
       </IonContent>
 
     </IonPage>
