@@ -43,7 +43,8 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ match }) => {
         <IonList>
           {leaderboard.map((member:any, index:number) => (
             <IonItem key={index}>
-              <IonLabel>{member.score + '  -  ' + member.email}</IonLabel>
+              <IonLabel>{member.score}</IonLabel>
+              <IonLabel>{member.email.split('@')[0] || ''}</IonLabel>
             </IonItem>
           ))}
         </IonList>
