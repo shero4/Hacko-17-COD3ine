@@ -43,6 +43,7 @@ import Tab3 from './pages/Tab3';
 import SearchPage from './pages/SearchPage';
 import ExamOverview from './pages/ExamOverview';
 import QASlides from './pages/QASlides';
+import Leaderboard from './pages/Leaderboard';
 
 const MainRouting: React.FC = () => {
   return (
@@ -57,6 +58,7 @@ const MainRouting: React.FC = () => {
               <ExamOverview />
             </Route>
             <Route exact path="/tab/exam/start/:cid" component={QASlides}/>
+            <Route exact path="/tab/exam/leaderboard/:cid" component={Leaderboard}/>
             <Route exact path="/tab/dashboard">
               <Dashboard />
             </Route>

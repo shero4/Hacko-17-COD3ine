@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useHistory} from 'react-router-dom';
 import { IonSlides, IonSlide, IonContent, IonPage, IonList, IonRadioGroup, IonListHeader, IonLabel, IonItem, IonRadio, IonItemDivider, IonGrid, IonRow, IonInput, IonButton } from '@ionic/react';
 import './QASlides.css';
 import { questionBank } from '../qa';
@@ -20,13 +21,22 @@ interface QASlidesProps extends RouteComponentProps<{
 
 const QASlides: React.FC<QASlidesProps> = ({match}) => {
 
+  const history = useHistory()
+ 
   const cid = match.params.cid
 
   const [selected, setSelected] = useState<string>('');
+  const [addEmail,setAddEmail] = useState<string>(' ');
+
   const callAddFriendToCompetition = async() => {
-      const res = await addFriendToCompetition(cid, '');
+      const res = await addFriendToCompetition(cid, addEmail);
+      // add toast
       console.log(res)
   } 
+
+  const goToLeaderboard = () => {
+    history.push(`/tab/exam/leaderboard/${cid}`)
+  }
 
   return (
 
@@ -58,11 +68,12 @@ const QASlides: React.FC<QASlidesProps> = ({match}) => {
         </IonSlides>
         <IonItemDivider>Add a friend:</IonItemDivider>
         <IonItem>
-          <IonInput placeholder="Enter your friend's email" clearInput></IonInput>
+          <IonInput placeholder="Enter your friend's email" onIonChange={(e : any) => setAddEmail(e.target.value)} clearInput></IonInput>
         </IonItem>
         <IonItem>
           <IonButton onClick={callAddFriendToCompetition} color="primary" shape="round" size="small"  >Add Friend</IonButton>
         </IonItem>
+        <IonButton onClick={goToLeaderboard} color="danger" shape="round" size="small"  >Submit</IonButton>
       </IonContent>
     </IonPage>
   );

@@ -73,36 +73,42 @@ export async function createCompetition() {
             cid: cid
         })
         return cid
-    } catch(err) {
+    } catch (err) {
         return err
     }
 }
 
 export async function addFriendToCompetition(cid: string, email: string) {
-    let config: AxiosRequestConfig = {
-        url: 'https://us-central1-examtantra-89ee0.cloudfunctions.net/getUid',
-        method: 'GET',
-        params: {
-            email: email
+    try {
+        let config: AxiosRequestConfig = {
+            url: 'https://us-central1-examtantra-89ee0.cloudfunctions.net/getUid',
+            method: 'GET',
+            params: {
+                email: email
+            }
         }
+        await axios(config).then(async res => {
+            let uid = res.data.uid.uid //uid of friend
+            await firebase.firestore().collection('competitions').doc(cid).collection('users').doc(uid).set({
+                score: 0,
+                email: email
+            })
+            await firebase.firestore().collection('users').doc(uid).collection('competitions').doc(cid).set({
+                cid: cid
+            })
+        })
+        return true
+    } catch (err) {
+        return err
     }
-    axios(config).then(async res => {
-        let uid = res.data.uid.uid //uid of friend
-        await firebase.firestore().collection('competitions').doc(cid).collection('users').doc(uid).set({
-            score: 0,
-            email: email
-        })
-        await firebase.firestore().collection('users').doc(uid).collection('competitions').doc(cid).set({
-            cid: cid
-        })
-    })
+
 }
 
 export async function checkAnswer(userAns: string, qno: number, cid: string) {
     try {
         let question = questionBank.find(o => o['q-id'] === qno)
         let uid = firebase.auth().currentUser?.uid
-        if(userAns === question?.correctAns) {
+        if (userAns === question?.correctAns) {
             await firebase.firestore().collection('competitions').doc(cid).collection('users').doc(uid).update({
                 score: firebase.firestore.FieldValue.increment(10)
             })
@@ -111,21 +117,21 @@ export async function checkAnswer(userAns: string, qno: number, cid: string) {
             console.log(question)
             return false
         }
-    } catch(err) {
+    } catch (err) {
         return console.log(err)
     }
 }
 
 export async function getLeaderboard(cid: string) {
     try {
-        let leaderboard:any = []
+        let leaderboard: any = []
         const res = await firebase.firestore().collection('competitions').doc(cid).collection('users').orderBy('score').get()
         res.docs.map(doc => {
             leaderboard.push(doc.data())
         })
         console.log(leaderboard)
         return leaderboard
-    } catch(err) {
+    } catch (err) {
         console.log(err)
     }
 }
@@ -133,14 +139,14 @@ export async function getLeaderboard(cid: string) {
 export async function getCompetitions() {
     try {
         let uid = firebase.auth().currentUser?.uid
-        let comps:any = []
+        let comps: any = []
         const res = await firebase.firestore().collection('users').doc(uid).collection('competitions').get()
         res.docs.map(doc => {
             comps.push(doc.data())
         })
         console.log(comps)
         return comps
-    } catch(err) {
+    } catch (err) {
         console.log(err)
     }
 }
