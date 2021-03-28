@@ -6,7 +6,7 @@ body{
 
 }
 #background-image-section{
-    --background:  url('http://localhost:8100/assets/icon/homepage-background.png') 0 0/100% 100% no-repeat;
+    --background:  url('https://i.ibb.co/THSYXdL/homepage-background.png') 0 0/100% 100% no-repeat;
     /* opacity:0.1;   */
     flex:4;
     display:flex;
