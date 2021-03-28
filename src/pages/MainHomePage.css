@@ -1,0 +1,49 @@
+body{
+    display:flex;
+    background-color:white;
+    flex-direction:column;
+    justify-content: center;
+
+}
+#background-image-section{
+    --background:  url('http://localhost:8101/assets/icon/homepage-background.png') 0 0/100% 100% no-repeat;
+    /* opacity:0.1;   */
+    flex:4;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    /* --padding-top:10rem; */
+
+
+}
+
+
+#buttons-section{
+    text-align:center;
+    /* padding-top:10px; */
+    flex:1;
+    --background:white;
+    display:flex;
+    justify-content:center;
+}
+
+
+
+#explore-more-button{
+    margin:1rem 4rem;
+}
+
+
+
+#log-in-section{
+    color:black;
+    font-size:1.2rem;
+    margin-bottom:2rem;
+}
+
+@media only screen and (min-width:650px){
+    #explore-more-button{
+        margin:2.5rem 5rem;
+    }
+}

@@ -44,6 +44,12 @@ import SearchPage from './pages/SearchPage';
 import ExamOverview from './pages/ExamOverview';
 import QASlides from './pages/QASlides';
 import Leaderboard from './pages/Leaderboard';
+import ProfilePage from './pages/ProfilePage';
+import MainHomePage from './pages/MainHomePage';
+import LoginPage from './pages/LoginPage';
+import SignUpPage from './pages/SignUpPage';
+
+
 
 const MainRouting: React.FC = () => {
   return (
@@ -52,13 +58,14 @@ const MainRouting: React.FC = () => {
         <IonTabs>
           <IonRouterOutlet>
             <Route path="/" component={PreLogin} exact />
-            <Route path="/login" component={Login} exact />
-            <Route path="/register" component={Register} exact />
+            <Route path="/login" component={LoginPage} exact />
+            <Route path="/register" component={SignUpPage} exact />
             <Route exact path="/tab/exam">
               <ExamOverview />
             </Route>
             <Route exact path="/tab/exam/start/:cid" component={QASlides}/>
             <Route exact path="/tab/exam/leaderboard/:cid" component={Leaderboard}/>
+
             <Route exact path="/tab/dashboard">
               <Dashboard />
             </Route>
@@ -66,7 +73,7 @@ const MainRouting: React.FC = () => {
               <SearchPage />
             </Route>
             <Route path="/tab/profile">
-              <Tab3 />
+              <ProfilePage />
             </Route>
           </IonRouterOutlet>
           <IonTabBar slot="bottom">

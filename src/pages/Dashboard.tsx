@@ -61,34 +61,34 @@ const Dashboard: React.FC = () => {
 
   const viewAll = () => { }; // Loading and viewing more cards from firebase.
 
-  const MyPage = styled(IonPage)`
-      margin-top: 1.5rem;
-    `;
+  // const MyPage = styled(IonPage)`
+  //     margin-top: 1.5rem;
+  //   `;
 
-  const MyContent1 = styled(IonContent)`
-      display: flex;
-      justify-content: space-between;
-    `;
+  // const MyContent1 = styled(IonContent)`
+  //     display: flex;
+  //     justify-content: space-between;
+  //   `;
 
-  const MyButton = styled(IonButton)`
-      display: flex;
-      max-width: 15%;
-      justify-content: flex-end;
-    `;
+  // const MyButton = styled(IonButton)`
+  //     display: flex;
+  //     max-width: 15%;
+  //     justify-content: flex-end;
+  //   `;
 
-  const MyTitle = styled(IonTitle)`
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-direction: column;
-      font-size: 2.5rem;
-    `;
-  const MyTitle1 = styled(IonTitle)`
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-direction: column;
-    `;
+  // const MyTitle = styled(IonTitle)`
+  //     display: flex;
+  //     align-items: center;
+  //     justify-content: space-between;
+  //     flex-direction: column;
+  //     font-size: 2.5rem;
+  //   `;
+  // const MyTitle1 = styled(IonTitle)`
+  //     display: flex;
+  //     align-items: center;
+  //     justify-content: space-between;
+  //     flex-direction: column;
+  //   `;
 
   const MyBar = styled(Bar)`
       width: 70%;
@@ -98,14 +98,14 @@ const Dashboard: React.FC = () => {
       color:red;
     `;
 
-  const MyCard = styled(IonCard)`
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50%;
-      margin-left: auto;
-      margin-right: auto;
-    `;
+  // const MyCard = styled(IonCard)`
+  //     display: flex;
+  //     align-items: center;
+  //     justify-content: center;
+  //     width: 50%;
+  //     margin-left: auto;
+  //     margin-right: auto;
+  //   `;
 
   return (
 
